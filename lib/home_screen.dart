@@ -15,7 +15,9 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: const Text("My Shopping List"),
+            title: const Text("My Shopping List",style: TextStyle(
+              fontSize: 22
+            ),),
             toolbarHeight: 60,
             actions: [
               IconButton(
@@ -25,7 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           backgroundColor: Colors.green,
                             content: Text("Cart is empty")));
                   },
-                  icon: const Icon(Icons.card_giftcard))
+                  icon: const Icon(Icons.shopping_cart,size: 26,)
+              )
             ],
           ),
           body: ListView(
