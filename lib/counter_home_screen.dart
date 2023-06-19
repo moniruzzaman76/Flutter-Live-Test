@@ -10,16 +10,17 @@ class CounterApp extends StatefulWidget {
 
 class _CounterAppState extends State<CounterApp> {
 
-  int _counter = 0;
+  int counter = 0;
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
-      if (_counter == 5) {
+      counter++;
+      if (counter == 5) {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Counter value is 5!'),
+            title: const Text("Counter Alert"),
+            content: const Text('Counter value is 5!'),
             actions: [
               TextButton(
                 onPressed: () {
@@ -30,7 +31,7 @@ class _CounterAppState extends State<CounterApp> {
             ],
           ),
         );
-      } else if (_counter == 10) {
+      } else if (counter == 10) {
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -43,7 +44,7 @@ class _CounterAppState extends State<CounterApp> {
 
   void _decrementCounter() {
     setState(() {
-      _counter--;
+      counter--;
     });
   }
 
@@ -56,34 +57,45 @@ class _CounterAppState extends State<CounterApp> {
           title: const Text('Counter App'),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Counter Value: $_counter',
-                style: const TextStyle(fontSize: 24),
-              ),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: ElevatedButton(
-                      onPressed: _incrementCounter,
-                      child: const Text('Increment'),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Counter Value:',
+                  style: TextStyle(fontSize:20),
+                ),
+               const SizedBox(height: 10,),
+               Text("$counter", style: const TextStyle(fontSize:30),),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green
+                        ),
+                        onPressed: _incrementCounter,
+                        child: const Text('Increment'),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    flex: 1,
-                    child: ElevatedButton(
-                      onPressed: _decrementCounter,
-                      child: const Text('Decrement'),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      flex: 1,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red
+                        ),
+                        onPressed: _decrementCounter,
+                        child: const Text('Decrement'),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
