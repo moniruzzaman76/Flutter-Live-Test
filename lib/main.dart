@@ -1,75 +1,24 @@
 import 'package:flutter/material.dart';
 
+import 'counter_home_screen.dart';
+
 void main() {
-  runApp(const CounterApp());
+  runApp(const RunApp());
 }
 
-class CounterApp extends StatefulWidget {
-  const CounterApp({super.key});
-
-  @override
-  _CounterAppState createState() => _CounterAppState();
-}
-
-class _CounterAppState extends State<CounterApp> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
+class RunApp extends StatelessWidget {
+  const RunApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Counter App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Counter App'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Counter Value: $_counter',
-                style: TextStyle(fontSize: 24),
-              ),
-              SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    flex: 2,
-                    child: ElevatedButton(
-                      onPressed: _incrementCounter,
-                      child: Text('Increment'),
-                    ),
-                  ),
-                  SizedBox(width: 16),
-                  Flexible(
-                    flex: 1,
-                    child: ElevatedButton(
-                      onPressed: _decrementCounter,
-                      child: Text('Decrement'),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: CounterApp(),
     );
   }
 }
+
+
+
+
+
