@@ -1,24 +1,47 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class NewsFeedScreen extends StatelessWidget {
+  const NewsFeedScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.sizeOf(context);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("AppBar"),
-      ),
-      body: const Center(
-        child: Text("Moniruzzaman"),
-      ),
-    );
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('Responsive'),
+        ),
+        body: OrientationBuilder(
+          builder: (BuildContext context, Orientation orientation) {
+            return ListView.separated(
+              itemCount: 5,
+              itemBuilder: (BuildContext context, int index) {
+                return  Column(
+                  children: [
+                    Container(
+                      height: size.height / 5,
+                      width: size.width,
+                      color: Colors.green,
+                      alignment: Alignment.center,
+                      child: Container(
+                        color: Colors.grey,
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: Center(
+                              child: Text(
+                                  "${size.height.round()} x ${size.width.round()}")),
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              }, separatorBuilder: (BuildContext context, int index) {
+                return const Divider(
+                  height: 1,
+                );
+            },
+            );
+          },
+        ));
   }
 }
-
