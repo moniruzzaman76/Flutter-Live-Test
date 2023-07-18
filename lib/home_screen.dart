@@ -15,6 +15,8 @@ class _NewsFeedState extends State<NewsFeed> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green,
+        centerTitle: true,
         title: const Text('News Feed'),
       ),
       body: Padding(
@@ -31,9 +33,9 @@ class _NewsFeedState extends State<NewsFeed> {
                       direction: isPortrait ? Axis.horizontal : Axis.vertical,
                       children: [
                         Expanded(
-                          flex: isPortrait ? 3 : 5,
+                          flex: isPortrait ? 3 : 4,
                           child: Image.network('https://resources.pulse.icc-cricket.com/ICC/photo/2023/03/14/bacdca20-b066-4f8f-968e-66972d6a2623/Shakib-fielding.jpg',
-                            width: MediaQuery.sizeOf(context).width * 0.40,
+                            width: MediaQuery.sizeOf(context).width * 0.35,
                           ),
                         ),
                         Expanded(
